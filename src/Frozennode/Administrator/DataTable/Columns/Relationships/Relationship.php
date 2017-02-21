@@ -182,4 +182,11 @@ class Relationship extends Column {
 		return $query;
 	}
 
+    public function getOwnerKey($relationship)
+    {
+        if (version_compare(\App::version(), "5.4.0", ">="))  {
+            return $relationship->getOwnerKey();
+        }
+        return $relationship->getOtherKey();
+    }
 }

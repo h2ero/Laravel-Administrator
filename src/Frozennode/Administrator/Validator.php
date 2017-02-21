@@ -59,7 +59,7 @@ class Validator extends \Illuminate\Validation\Validator {
 		$this->setCustomMessages($this->overrideCustomMessages);
 	}
 
-	protected function explodeRules(array $rules)
+	protected function explodeRules($rules)
     {
         foreach ($rules as $key => $rule) {
             if (Str::contains($key, '*')) {
