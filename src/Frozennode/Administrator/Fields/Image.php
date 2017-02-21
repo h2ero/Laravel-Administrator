@@ -37,6 +37,10 @@ class Image extends File {
 			->set_length($this->getOption('length'))
 			->upload();
 
+        if (isset($result[0]['path'])) {
+            $result[0]['filename'] = str_replace(public_path(),"",$result[0]['path']);
+        }
+
 		return $result[0];
 	}
 
